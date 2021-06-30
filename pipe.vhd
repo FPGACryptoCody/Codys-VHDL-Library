@@ -1,5 +1,5 @@
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--
--- Title: Inferred Multiplier
+-- Title: Pipe
 -- Created by: Cody Emerson
 -- Date: 6/30/2021
 -- Target: Xilinx Ultrascale
