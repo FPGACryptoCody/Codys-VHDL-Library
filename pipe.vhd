@@ -56,16 +56,16 @@ else generate
 ------------------------------------------------
    p_pipeline: process(ALL)
    begin
-      if(G_USE_RST = '1' and G_SYNC_RST = '0' and RST = '1') then
+      if(G_USE_RST = '1' and G_SYNC_RST = '0' and RST = '1') then -- Async Reset
          for i in 0 to G_RANK - 1 loop
             pipe_array(i) <= (others=>'0');
          end loop;
       elsif(rising_edge(CLK)) then
-         if(G_USE_RST = '1' and G_SYNC_RST = '1' and RST = '1') then
+         if(G_USE_RST = '1' and G_SYNC_RST = '1' and RST = '1') then -- Sync Reset
             for i in 0 to G_RANK - 1 loop
                pipe_array(i) <= (others=>'0');
             end loop;
-         else
+         else                                                        -- Flip-Flops
             pipe_array(0) <= D;
             for i in 0 to G_RANK - 2 loop
                pipe_array(i+1) <= pipe_array(i);
